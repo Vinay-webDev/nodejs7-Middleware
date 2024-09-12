@@ -1,0 +1,21 @@
+{
+  "name": "nodejs4-event-emitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logEvents.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "express": "^4.19.2",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
