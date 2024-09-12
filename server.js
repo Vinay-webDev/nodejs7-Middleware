@@ -10,8 +10,14 @@ const PORT = process.env.PORT || 3500;
 //1. built-in middleware
 //2. custom middleware
 //3. middlewares from third-parties
-
-//==========built-in middleware=================//
+//==========2.custom middleware===================//
+// custom middleware logger👇
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    next();
+})
+// we don't just want to log req methods to the console, instead we need to log it to the logEvents file*****
+//==========1.built-in middleware=================//
 /* built-in middleware to handle urlencoded data
  in other words, form data;
  // 'content-type: application/x-www-form-urlencoded'
