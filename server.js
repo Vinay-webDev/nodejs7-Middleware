@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
-
+const logEvents = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
 // middle = is really anything between request and response
@@ -12,11 +12,49 @@ const PORT = process.env.PORT || 3500;
 //3. middlewares from third-parties
 //==========2.custom middleware===================//
 // custom middleware logger👇
+//👉if you here we have next which was not there when had built-in middleware because the next is automatically provided by built-in middleware but in custom middleware we need to have it on our own ****
+/*
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.path}`);
     next();
 })
+*/
+// we can actually log these to the console to check to see if it's working 
+// but really we would like to have it in log text file so to do that👇
+//👉 create a middleware directory or folder 
+//👉 then drag the logEvents.js in middleware folder
+//👉 you might need to change the path for logs folder ( use '..' to go up one step ***);
+
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'reqLog.txt');
+    next();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 // we don't just want to log req methods to the console, instead we need to log it to the logEvents file*****
+
+
+
+
+
+
+
+
+
+
+
 //==========1.built-in middleware=================//
 /* built-in middleware to handle urlencoded data
  in other words, form data;
