@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const path = require('path');
-const logEvents = require('./middleware/logEvents');
+//const logEvents = require('./middleware/logEvents');
+const { logger } = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
 // middle = is really anything between request and response
@@ -24,18 +25,17 @@ app.use((req, res, next) => {
 //👉 create a middleware directory or folder 
 //👉 then drag the logEvents.js in middleware folder
 //👉 you might need to change the path for logs folder ( use '..' to go up one step ***);
-
+/*
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.path}`);
     logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, 'reqLog.txt');
     next();
 })
+*/
+// let's make it more cleaner and clear 
+// I'm gonna have this handler inside the logEvents function.
 
-
-
-
-
-
+app.use(logger);
 
 
 

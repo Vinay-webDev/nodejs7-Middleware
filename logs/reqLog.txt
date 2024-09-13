@@ -1,3 +1,6 @@
 20240913	14:24:08	8be58c5e-1d02-4a2a-82dd-cf2b25d18905	GET	undefined	/new-page.html
 20240913	14:24:08	a3fbdea6-aa98-4ab1-ae0c-a356ae0edc05	GET	undefined	/css/style.css
 20240913	14:24:08	db4e5250-534d-4eaf-a38b-ba2fb4f67472	GET	undefined	/img/jpeg/catOne.jpeg
+20240913	14:34:08	54b78c42-d26c-4611-b9eb-087789fc9b30	GET	undefined	/new-page.html
+20240913	14:34:08	9fab42ff-73fd-4716-93db-86a93ef9a4e0	GET	undefined	/css/style.css
+20240913	14:34:08	af83db15-b1a9-460c-a061-5b1fa841a854	GET	undefined	/img/jpeg/catOne.jpeg
