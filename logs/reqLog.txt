@@ -1,0 +1,3 @@
+20240913	14:24:08	8be58c5e-1d02-4a2a-82dd-cf2b25d18905	GET	undefined	/new-page.html
+20240913	14:24:08	a3fbdea6-aa98-4ab1-ae0c-a356ae0edc05	GET	undefined	/css/style.css
+20240913	14:24:08	db4e5250-534d-4eaf-a38b-ba2fb4f67472	GET	undefined	/img/jpeg/catOne.jpeg
