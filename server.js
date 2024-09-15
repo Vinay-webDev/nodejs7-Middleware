@@ -57,7 +57,7 @@ npm i cors
 //app.use(cors()); // this is public which means this available for any domain** also any domain can request our data from our server
 // however this is not that we always need. most of the times we need to have only the selected domains to request the data. we can actually do that👇
 // Let's create a whitelist which will have the list selected domains
-const whitelist = ['https://www.yoursite.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
+const whitelist = ['https://www.google.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
 
 // then we'll need to have a function that will allow these selected sites to request data
 // 👉👉👉remember origin parameter inside the function which is same as the origin property of the object (corsOptions) here the origin parameter inside the function is the origin of the site that is requesting data ==>> ( origin ===>>  the domain or the url of the site that is requesting the data )👈👈👈
@@ -76,7 +76,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 //1.====>>> we got CORS error again because we don't have www.google.com in our whitelist 
-
+//2. let's have www.google.com in our whitelist 
+//3. we got no CORS error now (because now we have www.google.com in our whitelist);
 
 
 
