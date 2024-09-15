@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 //const logEvents = require('./middleware/logEvents');
 const { logger } = require('./middleware/logEvents');
+const cors = require('cors');
 const PORT = process.env.PORT || 3500;
 
 // middle = is really anything between request and response
@@ -42,10 +43,15 @@ app.use(logger);
 //////////////Let's request data from another domain/////////////////////////////
 // so as you can notice we got undefined in the request origin is because we are requesting data from localhost 
 // Let's try to request data from another domain******
-
-
-
-
+/* we got CORS err in the console and this will lead us to a third-party middleware 'CORS'
+CORS === cross origin resource sharing 
+so now we need to install cors as dependency to do that just write 
+npm i cors
+*/
+// now import cors above👆
+//Let's place this cors middleware as soon as but just below the logger***
+//3. middlewares from third-party👇
+app.use(cors());
 
 
 

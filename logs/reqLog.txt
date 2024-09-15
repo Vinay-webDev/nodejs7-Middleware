@@ -6,3 +6,7 @@
 20240913	14:34:08	af83db15-b1a9-460c-a061-5b1fa841a854	GET	undefined	/img/jpeg/catOne.jpeg
 20240915	14:55:29	5a79efa8-a145-4973-8869-afe13b6fbaf4	OPTIONS	https://www.google.com	/
 20240915	14:55:29	e6098712-1943-4083-9e15-f815af589e35	GET	https://www.google.com	/
+20240915	15:02:55	067d6b9a-aca7-4d79-a845-6eb265c4c602	OPTIONS	https://www.google.com	/
+20240915	15:02:55	e79c8c33-f861-4527-8ab3-19e6081c6b8c	GET	https://www.google.com	/
+20240915	15:03:12	7943d0b5-ebc1-4995-b89a-9da6f19efca4	OPTIONS	https://www.google.com	/
+20240915	15:03:12	75a0d2c3-0f4d-4ce9-ba51-2d827bad903d	GET	https://www.google.com	/
