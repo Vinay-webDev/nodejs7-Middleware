@@ -66,7 +66,8 @@ const corsOptions = {
     origin: (origin, callback) => {
         // now we need to check if the domain or url or origin that is present inside our whitelist
         //if ( whitelist.indexOf(origin) !== -1 ) // if whitelist.indexOf(origin) is strictly not equal to -1  means is not present in the whitelist
-        if ( whitelist.indexOf(origin) !== -1 ) {
+        // ||!origin this wil allow if there is no domain***
+        if ( whitelist.indexOf(origin) !== -1 || !origin ) {
             callback(null, true); // here null is error**
         } else {
             callback(new Error('not allowed by the CORS'));
@@ -81,27 +82,6 @@ app.use(cors(corsOptions));
 //3. we got no CORS error now (because now we have www.google.com in our whitelist);
 //4. so our corsOptions is working fine and we can have our frontend or react web site inside this whitelist 
 /////////////////////////////////////////////////////////////////
-//=========================[5]little error handling=======================// 
-//1.Let's change www.google.com to www.yoursite.com to get that CORS error
-//2. now let's handle these errors
-//3. go all the way down even down after '/*' router 
-//4. and have a little error handler function
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //===============[1]built-in middleware=================//
 /* built-in middleware to handle urlencoded data
  in other words, form data;
@@ -152,6 +132,11 @@ app.get('/*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html')); 
 })
 //====================[5] little error handling=====================//
+//1.Let's change www.google.com to www.yoursite.com to get that CORS error
+//2. now let's handle these errors
+//3. go all the way down even down after '/*' router 
+//4. and have a little error handler function
+ 
 /*
 app.use(function (err, req, res, next) {
     console.error(err.stack);
@@ -163,6 +148,8 @@ app.use(errorHandler);
 // 2.so even we can this error handler much clean to do that 
 // 3.have a different file in middleware just like logEvents.js
 //4. import the errorHandler and have it inside of app.use() here much better and cleaner***
+//5. now we need to add one more step to have our index page working again
+//6. add ||!origin  to the options condition which will allow if there is no domain or no url***
 //==================================================================//
 app.listen(PORT, () => {
     console.log(`server is running on port: ${PORT}`);

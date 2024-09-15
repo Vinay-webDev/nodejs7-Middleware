@@ -21,3 +21,9 @@
 20240915	18:46:13	7fc0b426-58c9-493b-81d8-ffc5d5be874b	GET	undefined	/favicon.ico
 20240915	19:00:13	4a9a67ec-ac4c-47bb-8792-910b82d637c5	GET	undefined	/
 20240915	19:00:14	8a722cef-1fad-4d35-8c9e-90cb1227f26e	GET	undefined	/favicon.ico
+20240915	19:08:59	76cd1776-e838-4a27-9fad-19947115b516	GET	undefined	/
+20240915	19:08:59	da7e3ffc-8c4c-46f7-94ae-cfd4c5900924	GET	undefined	/css/style.css
+20240915	19:08:59	9a6db6ab-44ed-4214-bc8a-c2cb1df09682	GET	undefined	/favicon.ico
+20240915	19:09:43	e79202bc-caf6-4351-a748-9e293162130c	GET	undefined	/
+20240915	19:10:31	61afe8ab-e319-4427-8124-c3cbe427d19d	GET	undefined	/
+20240915	19:10:31	389b4041-aa8a-428a-ab9b-db7119501e11	GET	undefined	/css/style.css
