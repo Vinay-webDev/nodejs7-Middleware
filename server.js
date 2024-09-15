@@ -4,15 +4,16 @@ const fs = require('fs');
 const path = require('path');
 //const logEvents = require('./middleware/logEvents');
 const { logger } = require('./middleware/logEvents');
+const errorHandler = require('./middleware/errorHandler');
 const cors = require('cors');
 const PORT = process.env.PORT || 3500;
-
-// middle = is really anything between request and response
+//===========================================================//
+// middleware = is really anything between request and response
 // there are 3 types of middlewares 
 //1. built-in middleware
 //2. custom middleware
 //3. middlewares from third-parties
-//==========2.custom middleware===================//
+//===================[2]custom middleware===================//
 // custom middleware logger👇
 //👉if you here we have next which was not there when had built-in middleware because the next is automatically provided by built-in middleware but in custom middleware we need to have it on our own ****
 /*
@@ -50,14 +51,14 @@ npm i cors
 */
 // now import cors above👆
 //Let's place this cors middleware as soon as but just below the logger***
-//3. middlewares from third-party👇
+//===================[3]middlewares from third-party👇==============================//
 //app.use(cors());
 /////////////////////////////////////////////////////////
-////let's go little deeper into the cors/////////////////////////
+//===================[4]let's go little deeper into the cors========================//
 //app.use(cors()); // this is public which means this available for any domain** also any domain can request our data from our server
 // however this is not that we always need. most of the times we need to have only the selected domains to request the data. we can actually do that👇
 // Let's create a whitelist which will have the list selected domains
-const whitelist = ['https://www.google.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
+const whitelist = ['https://www.yoursite.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
 
 // then we'll need to have a function that will allow these selected sites to request data
 // 👉👉👉remember origin parameter inside the function which is same as the origin property of the object (corsOptions) here the origin parameter inside the function is the origin of the site that is requesting data ==>> ( origin ===>>  the domain or the url of the site that is requesting the data )👈👈👈
@@ -79,6 +80,13 @@ app.use(cors(corsOptions));
 //2. let's have www.google.com in our whitelist 
 //3. we got no CORS error now (because now we have www.google.com in our whitelist);
 //4. so our corsOptions is working fine and we can have our frontend or react web site inside this whitelist 
+/////////////////////////////////////////////////////////////////
+//=========================[5]little error handling=======================// 
+//1.Let's change www.google.com to www.yoursite.com to get that CORS error
+//2. now let's handle these errors
+//3. go all the way down even down after '/*' router 
+//4. and have a little error handler function
+ 
 
 
 
@@ -90,7 +98,11 @@ app.use(cors(corsOptions));
 
 
 
-//==========1.built-in middleware=================//
+
+
+
+
+//===============[1]built-in middleware=================//
 /* built-in middleware to handle urlencoded data
  in other words, form data;
  // 'content-type: application/x-www-form-urlencoded'
@@ -104,6 +116,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 // like routes middlewares also handles down like a water fall
 // which means the above all middlewares are applied to each of these routes******* (you can check in the web though);
+/////////////////////////////////////////////////////////////////////
 app.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 })
@@ -138,6 +151,19 @@ app.get('/chain(.html)?', [one, two, three]);
 app.get('/*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html')); 
 })
+//====================[5] little error handling=====================//
+/*
+app.use(function (err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send(err.message);
+})
+*/
+app.use(errorHandler);
+//1.instead of just logging error to the console we need to have a record of it just like logs we need to have a errlog
+// 2.so even we can this error handler much clean to do that 
+// 3.have a different file in middleware just like logEvents.js
+//4. import the errorHandler and have it inside of app.use() here much better and cleaner***
+//==================================================================//
 app.listen(PORT, () => {
     console.log(`server is running on port: ${PORT}`);
 })
