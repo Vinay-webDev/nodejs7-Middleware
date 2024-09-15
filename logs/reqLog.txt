@@ -4,3 +4,5 @@
 20240913	14:34:08	54b78c42-d26c-4611-b9eb-087789fc9b30	GET	undefined	/new-page.html
 20240913	14:34:08	9fab42ff-73fd-4716-93db-86a93ef9a4e0	GET	undefined	/css/style.css
 20240913	14:34:08	af83db15-b1a9-460c-a061-5b1fa841a854	GET	undefined	/img/jpeg/catOne.jpeg
+20240915	14:55:29	5a79efa8-a145-4973-8869-afe13b6fbaf4	OPTIONS	https://www.google.com	/
+20240915	14:55:29	e6098712-1943-4083-9e15-f815af589e35	GET	https://www.google.com	/

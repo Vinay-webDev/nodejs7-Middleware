@@ -32,18 +32,27 @@ app.use((req, res, next) => {
     next();
 })
 */
+///////////////////
 // let's make it more cleaner and clear 
 // I'm gonna have this handler inside the logEvents function.
 
 app.use(logger);
-
-
-
-
-
-
-
 // we don't just want to log req methods to the console, instead we need to log it to the logEvents file*****
+//////////////////////////////////////////////////////
+//////////////Let's request data from another domain/////////////////////////////
+// so as you can notice we got undefined in the request origin is because we are requesting data from localhost 
+// Let's try to request data from another domain******
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,7 +113,7 @@ app.get('/*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html')); 
 })
 app.listen(PORT, () => {
-    console.log(`server is running on ${PORT}`);
+    console.log(`server is running on port: ${PORT}`);
 })
 
 
