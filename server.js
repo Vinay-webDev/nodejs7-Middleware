@@ -127,9 +127,29 @@ const three = (req, res, next) => {
     res.send('finished!');
 }
 app.get('/chain(.html)?', [one, two, three]);
-
+//====================[6]compare between app.use() & app.all()===================// 
+/*
 app.get('/*', (req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html')); 
+}) */
+//1. app.use() does not accepts regular expressions i,e regX
+//2. app.use() is likely to be used for middlewares not for routing***
+//app.use('/') 
+/////
+//3. where as app.all() accepts regX and also it is used for routing 
+//app.all('/*') or app.all('*')
+app.all('/*', (req, res) => {
+    res.status(404);
+    // now we check for content type
+    if (req.accepts('html')) {
+        res.sendFile(path.join(__dirname, 'views', '404.html'));
+    } else if (req.accepts('json')) {
+        res.json({ error: '404 not found'});
+    } else {
+        //now in this stage we treat every other type as text
+        // and make it .txt
+        res.type('txt').send('404 not found');
+    }
 })
 //====================[5] little error handling=====================//
 //1.Let's change www.google.com to www.yoursite.com to get that CORS error

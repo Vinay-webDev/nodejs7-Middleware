@@ -1,3 +1,4 @@
 20240915	19:00:13	0111ed87-c760-4b6b-bd21-f5ade86654af	Error: not allowed by the CORS
 20240915	19:00:14	22bda88d-91d9-469a-9f0f-4e9ea43e87c8	Error: not allowed by the CORS
 20240915	19:09:43	bdb9a2ab-7327-4c48-a462-7cc4ea13ed8a	Error: not allowed by the CORS
+20240915	20:09:34	3b4f364d-6063-4bcb-a5ca-8c62e7785778	TypeError: res.accepts is not a function
