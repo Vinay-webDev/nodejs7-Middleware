@@ -78,7 +78,7 @@ app.use(cors(corsOptions));
 //1.====>>> we got CORS error again because we don't have www.google.com in our whitelist 
 //2. let's have www.google.com in our whitelist 
 //3. we got no CORS error now (because now we have www.google.com in our whitelist);
-
+//4. so our corsOptions is working fine and we can have our frontend or react web site inside this whitelist 
 
 
 
