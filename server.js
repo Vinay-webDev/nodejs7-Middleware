@@ -51,12 +51,31 @@ npm i cors
 // now import cors above👆
 //Let's place this cors middleware as soon as but just below the logger***
 //3. middlewares from third-party👇
-app.use(cors());
+//app.use(cors());
+/////////////////////////////////////////////////////////
+////let's go little deeper into the cors/////////////////////////
+//app.use(cors()); // this is public which means this available for any domain** also any domain can request our data from our server
+// however this is not that we always need. most of the times we need to have only the selected domains to request the data. we can actually do that👇
+// Let's create a whitelist which will have the list selected domains
+const whitelist = ['https://www.yoursite.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
 
+// then we'll need to have a function that will allow these selected sites to request data
+// 👉👉👉remember origin parameter inside the function which is same as the origin property of the object (corsOptions) here the origin parameter inside the function is the origin of the site that is requesting data ==>> ( origin ===>>  the domain or the url of the site that is requesting the data )👈👈👈
+const corsOptions = {
+    origin: (origin, callback) => {
+        // now we need to check if the domain or url or origin that is present inside our whitelist
+        //if ( whitelist.indexOf(origin) !== -1 ) // if whitelist.indexOf(origin) is strictly not equal to -1  means is not present in the whitelist
+        if ( whitelist.indexOf(origin) !== -1 ) {
+            callback(null, true); // here null is error**
+        } else {
+            callback(new Error('not allowed by the CORS'));
+        }
+    }
+}
 
+app.use(cors(corsOptions));
 
-
-
+//1.====>>> we got CORS error again because we don't have www.google.com in our whitelist 
 
 
 
